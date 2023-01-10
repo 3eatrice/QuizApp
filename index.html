@@ -21,28 +21,46 @@
     <div class="container">
       <div class="card quiz-card">
         <img src="src/img/brainbg.jpg" class="card-img-top">
-        <div class="card-body">
+
+        <div class="progress">
+          <div class="progress-bar bg-warning" id="progress-bar" style="width: 0%">0 %</div>
+        </div>
+
+        <div class="card-body" id="end-screen" style="display: none;">
+          <div class="text-center">Quiz beendet!
+          </div>
+          <div><img src="/src/img/tropy.png"></div>
+          <div class="text-center">
+          Du hast <b id="amount-right-questions">XXX</b> Fragen von <b id="amount-questions">XXX</b> richtig beantwortet.
+          </div>
+          <div class="button-row">
+          <button onclick="restartGame()" class="btn btn-dark">Erneut spielen</button>
+          </div>
+
+        </div>
+
+        <div class="card-body" id="question-body">
           <h5 class="card-title" id="questionText">Frage</h5>
 
-          <div class="card mb-2">
+          <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
             <div class="card-body" id="answer_1">
                Antwort
             </div>
           </div>
 
-          <div class="card mb-2">
+          <div class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
             <div class="card-body" id="answer_2">
               Antwort
             </div>
           </div>
 
-          <div class="card mb-2">
+          <div class="card quiz-answer-card mb-2" onclick="answer('answer_3')">
             <div class="card-body" id="answer_3">
               Antwort
             </div>
           </div>
 
-          <div class="card mb-2">
+          <div class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
             <div class="card-body" id="answer_4">
               Antwort
             </div>
@@ -50,9 +68,9 @@
 
           <div class="question-footer">
             <span>
-              <b>1</b> von <b id="all-questions">5</b> Fragen
+              <b id="questions-number">1</b> von <b id="all-questions">5</b> Fragen
             </span>
-            <button class="btn btn-dark">Nächste Frage</button>
+            <button onclick="nextQuestion()" class="btn btn-dark" disabled id="next-button">Nächste Frage</button>
           </div>
 
         </div>
